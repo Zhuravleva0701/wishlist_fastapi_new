@@ -1,4 +1,4 @@
-from wishlist.database.db import Base, engine
+from database.db import Base, engine
 from sqlalchemy import Column, String, Integer, Boolean
 
 

@@ -1,4 +1,4 @@
-from wishlist.database.db import SessionLocal
+from .db import SessionLocal
 
 
 async def get_db():

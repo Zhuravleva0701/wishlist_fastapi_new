@@ -4,13 +4,13 @@ from starlette.templating import Jinja2Templates
 from starlette.responses import RedirectResponse
 from starlette.status import HTTP_303_SEE_OTHER, HTTP_302_FOUND
 from sqlalchemy.orm import Session
-from wishlist.database.db_depends import get_db
+from database.db_depends import get_db
 from models import Item
 
 app = FastAPI()
 
-app.mount('/static', StaticFiles(directory='wishlist/static'), name='static')
-templates = Jinja2Templates(directory='wishlist/templates')
+app.mount('/static', StaticFiles(directory='static'), name='static')
+templates = Jinja2Templates(directory='templates')
 
 
 @app.get('/')

@@ -1,4 +1,4 @@
-{% extends 'wishlist/base.html' %}
+{% extends 'base.html' %}
 
 {% block content%}
 <div style="margin-top: 50px; class='ui container'">
@@ -24,12 +24,12 @@
 
         {% if item.is_complete == False %}
         <span class="ui gray label">Не закрыто</span>
-        <a class="ui primary basic button" href="{{ url_for('update', item_id=item.id }}">Закрыть</a>
+        <a class="ui primary basic button" href="{{ url_for('update', item_id=item.id) }}">Закрыть</a>
         {% else %}
         <span class="ui gray label">Закрыто</span>
-        <a class="ui blue button" href="{{ url_for('update', item_id=item.id }}">Открыть</a>
+        <a class="ui blue button" href="{{ url_for('update', item_id=item.id) }}">Открыть</a>
         {% endif %}
-        <a class="ui negative basic button" href="{{ url_for('delete', item_id=item.id }}">Удалить</a>
+        <a class="ui negative basic button" href="{{ url_for('delete', item_id=item.id) }}">Удалить</a>
     </div>
 {% endfor %}
 </div>
