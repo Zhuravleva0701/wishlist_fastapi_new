@@ -1,0 +1,36 @@
+{% extends 'wishlist/base.html' %}
+
+{% block content%}
+<div style="margin-top: 50px; class='ui container'">
+    <h1 class="ui center aligned header">Список моих хотелок</h1>
+
+<form class="ui form" action="{{ url_for('add') }}" method="post">
+       <h3 class="test_css">Оптимизируй свои желания</h3>
+       <div class="field">
+           <label> Новая хотелка </label>
+           <input type="text" name="title" placeholder="Введите название хотелки"><br>
+           <label> Подробное описание </label>
+           <input type="text" name="description" placeholder="Опишите хотелку"><br>
+           <label> Стоимость </label>
+           <input type="number" name="price" placeholder="Стоимость"><br>
+       </div>
+       <button class="ui teal basic button" type="submit">Добавить</button>
+</form>
+
+{% for item in wishlist %}
+    <div class="ui segment">
+        <p class="ui big header">№{{ item.id}} {{ item.title }}<br>
+        {{ item.description }} <br> {{ item.price }}</p>
+
+        {% if item.is_complete == False %}
+        <span class="ui gray label">Не закрыто</span>
+        <a class="ui primary basic button" href="{{ url_for('update', item_id=item.id }}">Закрыть</a>
+        {% else %}
+        <span class="ui gray label">Закрыто</span>
+        <a class="ui blue button" href="{{ url_for('update', item_id=item.id }}">Открыть</a>
+        {% endif %}
+        <a class="ui negative basic button" href="{{ url_for('delete', item_id=item.id }}">Удалить</a>
+    </div>
+{% endfor %}
+</div>
+{% endblock content %}l>
