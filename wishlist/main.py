@@ -7,6 +7,9 @@ from sqlalchemy.orm import Session
 from database.db_depends import get_db
 from models import Item
 
+"""Основной функционал приложения описан функциями получения всех обьектов,
+добавления нового обьекта, обновления и удаления по айди, также инициализация самого приложения"""
+
 app = FastAPI()
 
 app.mount('/static', StaticFiles(directory='static'), name='static')

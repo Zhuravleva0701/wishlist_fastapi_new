@@ -1,6 +1,7 @@
 from database.db import Base, engine
 from sqlalchemy import Column, String, Integer, Boolean
 
+"""Модель желаемого подарка"""
 
 class Item(Base):
     __tablename__ = 'wishlist'
